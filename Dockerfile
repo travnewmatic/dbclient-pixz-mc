@@ -1,3 +1,3 @@
-FROM alpine:edge
-RUN echo "https://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && apk update
-RUN apk add --no-cache mysql-client postgresql-client pixz minio-client
+FROM debian:unstable-slim
+RUN apt update && apt install -y wget mariadb-client postgresql-client pixz
+RUN wget https://dl.min.io/client/mc/release/linux-amd64/mc && chmod +x mc && mv mc /usr/local/bin/mcli
